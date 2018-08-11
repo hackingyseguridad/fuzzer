@@ -9998,6 +9998,7 @@ index.do
 index.asp
 index.php 
 index.jsp
+index.js
 index.php.1317078588
 index.php.bak
 index.php.initial
@@ -16145,6 +16146,7 @@ second
 second-love-nl3
 secondary
 secret
+secreto
 Secret
 secret.nsf
 secrets
