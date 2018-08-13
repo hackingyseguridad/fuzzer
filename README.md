@@ -1,4 +1,4 @@
-# fuzzer
+# fuzzer http
 
 Descubre ficheros en  url de sitio web por respuesta HTTP/1.1 200 OK..
 
