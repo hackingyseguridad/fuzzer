@@ -1,6 +1,10 @@
 # fuzzer http
 
-Descubre ficheros en  url de sitio web por respuesta HTTP/1.1 200 OK..
+Descubre ficheros en  url de sitio web por respuestas:
+
+HTTP/1.1 200 OK..
+HTTP/1.1 403 OK
+HTTP/1.1 500 OK
 
 Instalación:
 
