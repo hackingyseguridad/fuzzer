@@ -5,15 +5,16 @@ cat << "INFO"
  | |_ _   _ ___________ _ __  | |__ | |_| |_ _ __
  |  _| | | |_  /_  / _ \ '__| | '_ \| __| __| '_ \
  | | | |_| |/ / / /  __/ |    | | | | |_| |_| |_) |
- |_|  \__,_/___/___\___|_|    |_| |_|\__|\__| .__/
+ |_|  \__,_/___/___\___|_|    |_| |_|\__|\__| .__/ 1.0
                                             | |
-                     hackingyseguridad.com  |_|
+                     hackingyseguridad.com  |_| 
 
 INFO
 if [ -z "$1" ]; then
         echo
         echo "Descubre ficheros en  url de sitio web por 200 OK.. "
         echo "Uso: $0 <http://dominio.com>"
+        echo "Tiempo estimado 1 hora .."
         exit 0
 fi
 echo
