@@ -28,3 +28,21 @@ do
         then echo $fqdn
         fi
 done
+
+for n in `cat diccionario.txt`
+
+do
+        fqdn=$1"/"$n
+        if curl $fqdn -I --silent|grep "403 OK"
+        then echo $fqdn
+        fi
+done
+
+for n in `cat diccionario.txt`
+
+do
+        fqdn=$1"/"$n
+        if curl $fqdn -I --silent|grep "500 OK"
+        then echo $fqdn
+        fi
+done
