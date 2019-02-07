@@ -25,7 +25,7 @@ for n in `cat diccionario.txt`
 
 do
         fqdn=$1"/"$n
-        if curl --cacert MyRootCA.crt -k -s $fqdn -I -k --silent|grep "200 OK"
+        if curl --cacert MyRootCA.crt -k -s $fqdn -I --silent|grep "200 OK"
         then echo $fqdn
         fi
 done
@@ -34,7 +34,7 @@ for n in `cat diccionario.txt`
 
 do
         fqdn=$1"/"$n
-        if curl --cacert MyRootCA.crt -k -s $fqdn -I -k --silent|grep "403 OK"
+        if curl --cacert MyRootCA.crt -k -s $fqdn -I --silent|grep "403 OK"
         then echo $fqdn
         fi
 done
@@ -43,7 +43,7 @@ for n in `cat diccionario.txt`
 
 do
         fqdn=$1"/"$n
-        if curl --cacert MyRootCA.crt -k -s $fqdn -I -k --silent|grep "500 OK"
+        if curl --cacert MyRootCA.crt -k -s $fqdn -I --silent|grep "500 OK"
         then echo $fqdn
         fi
 done
