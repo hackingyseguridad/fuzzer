@@ -14,7 +14,7 @@ if [ -z "$1" ]; then
         echo "Genera CA root y certificados para las peticiones https "
         echo "Descubre ficheros en  url de sitio web por 200 OK.. "
         echo "Uso: $0 <https://dominio.com>"
-        echo "Tiempo estimado 2 horas .."
+        echo "Tiempo estimado 1 hora ..."
         exit 0
 fi
 echo
