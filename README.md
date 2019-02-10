@@ -8,14 +8,13 @@ HTTP/1.1 500 OK
 
 Instalación:
 
-sh generacert.sh
-
 git clone https://github.com/hackingyseguridad/fuzzer
 
 cd fuzzer
 
-chmod 777 fuzzer.sh
+chmod 777 *
 
+sh generacert.sh
 
 Uso.: 
 
