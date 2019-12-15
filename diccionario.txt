@@ -2,10 +2,8 @@
 editBlackAndWhiteList
 TP/public/index.php
 users
-robots.txt
 manager.html
 myadmin/scripts/setup.php
-index.php
 xmlrpc.php
 tmUnblock.cgi
 pma/scripts/setup.php
