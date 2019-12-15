@@ -1,3 +1,14 @@
+/
+editBlackAndWhiteList
+TP/public/index.php
+users
+robots.txt
+manager.html
+myadmin/scripts/setup.php
+index.php
+xmlrpc.php
+tmUnblock.cgi
+pma/scripts/setup.php
 %00
 %252e%252e/manager/html
 %252f%252fserver-status
