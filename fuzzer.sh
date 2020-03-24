@@ -25,7 +25,7 @@ for n in `cat diccionario.txt`
 
 do
         fqdn=$1"/"$n
-        if timeout 1 curl --cacert MyRootCA.crt -k -s $fqdn -I --silent|grep "200\|301\|302\|500\|401\|403"
+        if timeout 1 curl --cacert MyRootCA.crt -k -s $fqdn -I --silent|grep "100\|200\|300\|301\|302\|401\|403\|405\|500"
         then echo $fqdn
         fi
 done
