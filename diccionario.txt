@@ -20546,3 +20546,4 @@ yonetim.php
 /?lastname=
 /?locale=
 /?cmd=
+show_log.php?file=../../../../../../../../../../etc/passwd
