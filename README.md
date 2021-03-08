@@ -1,6 +1,6 @@
 # fuzzer http y https
 
-Descubre ficheros en  url de sitio web por respuestas:
+Descubre ficheros interesantes en  url de sitio web por respuestas:
 
 HTTP/1.1 200 OK..
 HTTP/1.1 403 OK
