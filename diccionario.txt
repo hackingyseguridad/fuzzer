@@ -1,4 +1,7 @@
 /
+images/..%2findex.htm
+js/..%2findex.htm
+css/..%2findex.htm
 editBlackAndWhiteList
 TP/public/index.php
 users
