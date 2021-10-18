@@ -1,4 +1,7 @@
 /
+admin%2e%2e
+%2e%2e
+admin/%2e
 %20admin%20
 admin%20
 %20admin 
