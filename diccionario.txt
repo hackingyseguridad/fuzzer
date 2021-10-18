@@ -1,4 +1,7 @@
 /
+%20admin%20
+admin%20
+%20admin 
 images/..%2findex.htm
 js/..%2findex.htm
 css/..%2findex.htm
