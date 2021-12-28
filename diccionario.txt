@@ -24064,7 +24064,6 @@ index.class
 index.cs
 index.gz
 index.htm
-index.html
 index.inc
 index.java
 index.jsp
