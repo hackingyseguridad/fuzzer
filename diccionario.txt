@@ -1,6 +1,10 @@
 /
 index.html
+index.php
+index.asp
 index.jsp
+robots.txt
+favicon.ico
 admin%2e%2e
 %2e%2e
 admin/%2e
