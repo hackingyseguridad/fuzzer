@@ -8064,7 +8064,6 @@ father
 fault
 fav
 favicon
-favicon.ico
 favor
 favorite
 favorite_add
