@@ -10005,7 +10005,6 @@ index.cfm
 index.cgi
 index.class
 index.htm
-index.html
 index2.htm
 index2.html
 index3.htm
