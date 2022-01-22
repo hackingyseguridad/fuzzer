@@ -1,5 +1,5 @@
 for i in `cat ip.txt`
 do
-ffuf -w diccionario.txt -H "User-Agent: Googlebot-News" -u http://$i/FUZZ -mc 200
+ffuf -w diccionario.txt -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36" -u http://$i/FUZZ -mc 200
 echo $i
 done
