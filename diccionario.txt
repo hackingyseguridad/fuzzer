@@ -64,6 +64,34 @@ pma/scripts/setup.php
 .FBCIndex
 .forward
 .ftpquota
+.git
+.git-rewrite
+.git/HEAD
+.git/index
+.git/logs
+.gitattributes
+.gitconfig
+.gitkeep
+.gitmodules
+.gitreview
+.svn/entries
+.svnignore
+proc/cmdline
+proc/mounts
+etc/motd
+etc/mysql/my.cnf
+proc/sched_debug
+home/ U1/.bash_history
+home/ U1/.ssh/id_rsa
+proc/self/cwd/index.php
+proc/self/cwd/main.py
+etc/motd
+proc/net/udp
+proc/net/arp
+proc/self/environ
+var/run/secrets/kubernetes.io/serviceaccount
+
+
 .gif
 .git
 .git/branches
@@ -30690,8 +30718,10 @@ webclient/Login.xhtml
 weblogin.cgi?=0
 weblogin.cgi?=1
 weblogin.cgi?mobile=0
+///////../../etc/passwd
 ///////../../../etc/passwd
 ///////../../../../etc/passwd
 ///////../../../../../etc/passwd
 ///////../../../../../../etc/passwd
 ///////../../../../../../../etc/passwd
+///////../../../../../../../../etc/passwd
