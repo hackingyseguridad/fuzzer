@@ -30757,3 +30757,5 @@ profile
 profile/Device
 profile/Registrations
 services/CommPilotExpress/Profile
+device
+claves.txt
