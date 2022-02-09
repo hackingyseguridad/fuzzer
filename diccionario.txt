@@ -30753,3 +30753,7 @@ weblogin.cgi?mobile=0
 ///////../../../../../../etc/passwd
 ///////../../../../../../../etc/passwd
 ///////../../../../../../../../etc/passwd
+profile 
+profile/Device
+profile/Registrations
+services/CommPilotExpress/Profile
