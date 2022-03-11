@@ -30759,3 +30759,6 @@ profile/Registrations
 services/CommPilotExpress/Profile
 device
 claves.tmp
+..\\..\\..\\..\\..\\Windows\\System32\\cmd.exe
+../../../../../../../etc/passwd
+
