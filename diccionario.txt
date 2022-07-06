@@ -119,7 +119,8 @@ proc/net/arp
 proc/self/environ
 var/run/secrets/kubernetes.io/serviceaccount
 
-
+/_async/AsyncResponseService
+/_async/AsyncResponseServiceHttps
 .gif
 .git
 .git/branches
