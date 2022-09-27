@@ -30789,3 +30789,4 @@ wp-content/uploads/kaswara/fonts_icon/15/icons.php
 int/private/.htpasswd
 /private/.htpasswd
 private/.htpasswd
+htpasswd
