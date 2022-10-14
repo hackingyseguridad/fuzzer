@@ -6,7 +6,7 @@
 echo
 echo "..."
 echo
-for S in `cat ip.txt`; do if timeout 1 curl --http1.0 -k -s -I --connect-timeout 15 --max-time 30 --silent -X "PUT" https://$S/$1 -H "User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0" -H "Accept: text/html, applicattion/xhtml+xml, application/xml;q=0.9,*/*;q=0.8" -H 'Content-Type: application/json' -H "X-HTTP-Method-Override: PUT" -H "X-Forwarded-For: $S" -H "Forwarded: for=[127.0.0.1]:8000;by=[127.0.0.1]:9000;" \ |grep "HTTP/1.1 200\|401"
+for S in `cat ip.txt`; do if timeout 1 curl --http1.0 -k -s -I --connect-timeout 15 --max-time 30 --silent -X "GET" https://$S/$1 -H "User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0" -H "Accept: text/html, applicattion/xhtml+xml, application/xml;q=0.9,*/*;q=0.8" -H 'Content-Type: application/json' -H "X-HTTP-Method-Override: PUT" -H "X-Forwarded-For: $S" -H "Forwarded: for=[127.0.0.1]:8000;by=[127.0.0.1]:9000;" \ |grep "HTTP/1.1 200\|401"
         then echo $S "Vulnerable !!!"
         fi
 done
