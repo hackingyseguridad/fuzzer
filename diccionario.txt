@@ -30804,3 +30804,8 @@ api/v1/%3f
 api/v1/%26 
 api/v1/%23 
 foo;x=x/bar/
+api/users/1
+api/users/2
+api/users/;;/2
+api/users/;;/admin
+/api/users/;;/admin
