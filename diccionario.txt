@@ -30810,3 +30810,5 @@ api/users/;;/2
 api/users/;;/admin
 /api/users/;;/admin
 /assets/css///////../../../../../../../../etc/passwd
+ouath
+/ouath
