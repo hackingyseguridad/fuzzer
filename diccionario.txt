@@ -30814,3 +30814,5 @@ ouath
 /ouath
 .%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd
 /.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd
+configWizard/keyUpload.jsp
+/configWizard/keyUpload.jsp
