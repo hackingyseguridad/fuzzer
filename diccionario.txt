@@ -30816,3 +30816,12 @@ ouath
 /.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd
 configWizard/keyUpload.jsp
 /configWizard/keyUpload.jsp
+/admin/
+/admin/../admin
+//admin/
+/Admin/
+/admin;/
+/Admin;/
+/index.php/admin/
+/admin../admin
+//admin/admin/
