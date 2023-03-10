@@ -300,6 +300,8 @@ var/run/secrets/kubernetes.io/serviceaccount
 032
 034
 035
+/wp-admin/admin-post.php
+wp-admin/admin-post.php
 036
 04
 0404
