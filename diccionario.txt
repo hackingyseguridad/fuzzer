@@ -32979,6 +32979,10 @@ cdn
 /api/v2/users
 /api/v2/verification/create
 /api/v2/verification/financer
+api/v2/cmdb/system/admin/admin
+/api/v2/cmdb/system/admin/
+/api/v2/cmdb/system/admin
+/api/v2/cmdb/system/admin/admin
 /api/v4/groups
 /api/v4/projects
 /api/v4/users
