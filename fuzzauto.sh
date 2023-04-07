@@ -7,13 +7,10 @@ echo "Uso.: ./fuzzerauto.sh "
 for n in `cat ip.txt`
 do echo "======>" $n
 for p in `cat diccionario.txt`
-do
-        fqdn="https://$n:443/$p"
-       	echo "===>" $fqdn
-
-
-
-
+        do
+fqdn="https://$n:443/$p"
+# echo "===>" $fqdn
+dirb  $fqdn diccionario.txt -M 100,204,307,400,401,403,409,500,503 -f
         then echo $fqdn
         fi
 done
