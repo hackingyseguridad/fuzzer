@@ -53536,3 +53536,5 @@ xfn.js
 xfn.min.js
 xmlrpc.php
 shell.war
+/app?service=page/SetupCompleted
+app?service=page/SetupCompleted
