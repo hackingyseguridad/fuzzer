@@ -3,7 +3,9 @@
 
 echo
 echo "./bypass-403.sh https://pagina.com path"
-echo " "
+echo
+echo "Codigo HTTP, datos descargados, URL probada"
+echo "-------------------------------------------"
 curl -k -s -o /dev/null -iL -w "%{http_code}","%{size_download}" $1/$2
 echo "  --> ${1}/${2}"
 curl -k -s -o /dev/null -iL -w "%{http_code}","%{size_download}" $1/%2e/$2
