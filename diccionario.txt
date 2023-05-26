@@ -16,6 +16,7 @@ index.jsp
 index.js
 index.jp
 index.php
+index.php?run=%26echo%20`id`%24()%5C%20 
 index.php5
 index.php4
 index.php3
