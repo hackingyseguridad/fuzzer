@@ -53539,3 +53539,4 @@ xmlrpc.php
 shell.war
 /app?service=page/SetupCompleted
 app?service=page/SetupCompleted
+config.properties
