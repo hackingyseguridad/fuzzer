@@ -53557,3 +53557,7 @@ phpMyAdmin-2.6.4-pl1/
 webauth_operation.php
 /webauth_operation.php 
 /?LD_PRELOAD=/tmp/ld
+/env/.config
+.env/.config
+env/.config
+/.env/.config
