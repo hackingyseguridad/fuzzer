@@ -53561,3 +53561,7 @@ webauth_operation.php
 .env/.config
 env/.config
 /.env/.config
+/wordpress/wp-content/plugins/royal-elementor-addons/readme.txt
+wordpress/wp-content/plugins/royal-elementor-addons/readme.txt
+/wp-content/plugins/royal-elementor-addons/readme.txt
+wp-content/plugins/royal-elementor-addons/readme.txt
