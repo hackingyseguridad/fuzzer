@@ -19280,6 +19280,10 @@ vpo
 vpro
 vps
 vpuserinfo.nsf
+wp-admin
+wp-admin/
+/wp-admin
+/wp-admin/
 vr
 vrc
 vrml
