@@ -14218,6 +14218,10 @@ phpmyvisites
 phpnuke
 phpopentracker
 phppgadmin
+/phpmyadmin/*
+/./phpmyadmin/
+//phpmyadmin//
+/*/phpmyadmin/
 phps
 phpscripts
 phpsecinfo
