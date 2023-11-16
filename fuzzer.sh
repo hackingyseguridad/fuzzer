@@ -47,6 +47,6 @@ do
 -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3' \
 -H 'Accept-Encoding: gzip, deflate, br' \
 -H 'Accept-Language: es-ES,es;q=0.9,en;q=0.8' \ |grep "100\|200\|300\|301\|302\|401\|403\|405\|500"
-        then echo $fqdn
+        then echo $fqdn && echo
         fi
 done
