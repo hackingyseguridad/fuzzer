@@ -21,6 +21,19 @@ fi
 echo
 echo "Fuzzer de: " $1
 echo
+echo "Cod Significado"
+echo "--- -----------"
+echo "200 OK" 
+echo "301 Movido permamentemente"
+echo "302 Encontrado "
+echo "304 No modificado"
+echo "400 Solicitud incorrecta"
+echo "400 No autorizado"
+echo "403 Prohibido"
+echo "404 No encontrado"
+echo "410 Ya no esta disponible"
+echo "500 Error interno en el servidor"
+echo
 
 for n in `cat diccionario.txt`
 
