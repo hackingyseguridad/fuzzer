@@ -23,24 +23,15 @@ Uso.:
 
 Respuestas HTTP:
 
-        '200':
-          description: OK
-        '204':
-          description: No content
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not found
-        '409':
-          description: Conflict
-        '500':
-          description: inernal server error
-        '503':
-          description: Service unavailable
+
+
+you can run fuzzer.sh by pointing it to the URL of the web application you want to test. For example, to test the web application at http://example.com, you would run the following command:
+
+fuzzer.sh http://example.com
+Fuzzer.sh will then generate random input and send it to the web application. If the web application is vulnerable, the fuzzer may be able to crash the application or exploit a vulnerability.
+
+Fuzzer.sh can be a valuable tool for testing the security of web applications. However, it is important to note that fuzzer.sh is not a silver bullet. It is not guaranteed to find all vulnerabilities, and it can also generate false positives. It is important to use fuzzer.sh in conjunction with other security testing tools and methods.
+
 
 
 X Cabeceras localhost:
