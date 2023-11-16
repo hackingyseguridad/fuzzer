@@ -23,7 +23,27 @@ Uso.:
 
 Respuestas HTTP:
 
+200 OK
 
+301 Movido permamentemente
+
+302 Encontrado
+
+304 No modificado
+
+400 Solicitud incorrecta
+
+400 No autorizado
+
+403 Prohibido
+
+404 No encontrado
+
+410 Ya no esta disponible
+
+500 Error interno en el servidor
+
+503 Servicio no disponible
 
 you can run fuzzer.sh by pointing it to the URL of the web application you want to test. For example, to test the web application at http://example.com, you would run the following command:
 
