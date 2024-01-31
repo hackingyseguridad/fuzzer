@@ -49295,3 +49295,4 @@ upload.action
 /upload.action
 upload-1.0.0/upload.action
 /upload-1.0.0/upload.action
+/about.php?PHPRC=/dev/fd/0
