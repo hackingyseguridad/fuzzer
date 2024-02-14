@@ -49557,3 +49557,5 @@ im/
 E6/
 /login?form=%2F -f /etc/passwd
 login?form=%2F -f /etc/passwd
+/api/v1/license/keys-status
+api/v1/license/keys-status
