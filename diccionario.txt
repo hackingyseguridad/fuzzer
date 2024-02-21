@@ -49559,3 +49559,7 @@ E6/
 login?form=%2F -f /etc/passwd
 /api/v1/license/keys-status
 api/v1/license/keys-status
+/xmlchange
+/xmltask
+xmlchange
+xmltask
