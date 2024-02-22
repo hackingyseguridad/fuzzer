@@ -49563,3 +49563,5 @@ api/v1/license/keys-status
 /xmltask
 xmlchange
 xmltask
+wp-content/themes/bricks
+wp-json/bricks/v1/render_element
