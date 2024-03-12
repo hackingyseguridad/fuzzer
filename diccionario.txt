@@ -49487,7 +49487,6 @@ connect/deviceauthorization
 /iottoken
 /v1/centercode/configuration
 /v1/centercode/configuration/project
-/v1/centercode/configuration/project/
 /v1/certificates/revoked
 /v1/certificates/revoked/remove
 /v1/certmgmt/appcert
@@ -50781,7 +50780,7 @@ vulnerabilities
 /v3/me/profile
 /v3/me/prefs
 /v3/me/prefs/phrases
-/v3/me/prefs/phrases/bfc44381-c215-35f7-874a-ae512360836a
+/v3/me/prefs
 /v3/me/prefs/settings
 /v3/me/subscriptions
 /v3/me/subscriptions?platform=android
@@ -50790,9 +50789,9 @@ vulnerabilities
 /v3/me/location/
 v4
 /v4/locations
-/v5/profiles/nearby?pageNumber=1
-/v5/profiles/unlimited?searchAfterDistance=0
-/v6/profiles/fresh?pageNumber=1
+/v5/profiles
+/v6/profiles/
+/v6
 /v3/places/search?placeName=newyork&limit=3
 /v5/me/vendor-token
 /v5/rewarded-chats
@@ -50802,7 +50801,7 @@ v4
 /v4/audio-call/leave
 /v4/pics/expiring/status
 /v4/pics/expiring
-/v4/phrases/frequency/phraseId=63db06c8-9915-3279-b07c-1fd925013acc
+/v4/phrases
 /v4/recognition/face
 /v4/recognition/chat
 /v4/views
@@ -50812,9 +50811,9 @@ v4
 /v3.1/groupchat/canbeinvited
 /v3.1/groupchat/caninvite/44906526
 /v3.1/groupchat/invitation-link-code/22345
-/v3.1/me/push-conversations/908f72c2d4aea3998a3400c9ad539768
-/v3/ad-colony/transactions?amount=4&uid=2&zone=3&id=1&verifier=10&udid=7&odin1=8&open_udid=6&mac_sha1=9&custom_id=49645¤cy=5
-https://idapi.dof6.com/v3/mopub/transactions?ad_revenue=4.0&ad_unit_id=2&advertising_id=3&id=1¤cy_type=10¤cy_value=7&customer_id=8&id=6&placement_id=9×tamp=49645&verifier=5
+/v3.1/me/push-conversations
+/v3/ad-colony/transactions
+/v3/mopub/transaction
 /v3/video-call
 /v3/video-call/12345
 /v3/me/chat/messages?undelivered=true
@@ -50823,9 +50822,8 @@ https://idapi.dof6.com/v3/mopub/transactions?ad_revenue=4.0&ad_unit_id=2&adverti
 /v3/msgstore?limit=10&from=0
 /v3/msgstore?msgid=messageId
 /v3/msgstore/delete
-/v3/messages/83a833be210bfe8de60e8e4a7bfe1339?limit=10&from=0
+/v3/messages
 /v3/groupchats
-/v3/groupchats/0835caae4ce92ef1220043a27b0a1b03
 /v3/groupchats/12335
 /v3/groupchats/12335/112233
 /v3/groupchats/all
@@ -50864,7 +50862,7 @@ https://idapi.dof6.com/v3/mopub/transactions?ad_revenue=4.0&ad_unit_id=2&adverti
 /v1/access-requests/confirmations
 /v3/ios-push-tokens
 /v3/gcm-push-tokens
-/v3/push-tokens/000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1aaa
+/v3/push-tokens/
 asyncapi.yaml
 /asyncapi.yaml
 _api/
