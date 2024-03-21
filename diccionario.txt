@@ -263,6 +263,12 @@ var/run/secrets/kubernetes.io/serviceaccount
 /api.yaml
 /api.yml 
 /api.html 
+openapi.yaml
+components.yaml
+deployment.yaml
+/openapi.yaml
+/components.yaml
+/deployment.yaml
 /documentation/swagger.json 
 /documentation/swagger.yaml
 /documentation/swagger.yml 
