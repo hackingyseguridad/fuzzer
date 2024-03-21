@@ -50877,5 +50877,6 @@ _api/
 _api/web/lists/
 /_api/web/
 _api/web/
-
+docs.yaml
+/docs.yaml
 
