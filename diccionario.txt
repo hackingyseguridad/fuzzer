@@ -286,6 +286,8 @@ deployment.yaml
 /api/swagger.json 
 /swagger.yaml
 /swagger.yml 
+/api/swagger/v1
+/api
 /swagger-resources 
 /swagger-resources/configuration/security 
 /api/v3/swagger.json 
