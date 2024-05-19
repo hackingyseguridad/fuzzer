@@ -7,14 +7,15 @@ cat << "INFO"
  | |_ _   _ _________ | |__ | |_| |_ _ __  ___
  |  _| | | |_  /_  /  | '_ \| __| __| '_ \/ __|
  | | | |_| |/ / / /   | | | | |_| |_| |_) \__ \
- |_|  \__,_/___/___\  |_| |_|\__|\__| .__/|___/ v1.10 (Noviembre de 2023) 
+ |_|  \__,_/___/___\  |_| |_|\__|\__| .__/|___/ v1.10 (Mayo de 2024) 
            ALDEA DEL FRESNO / MADRID / ESPAÑA
+           http://www.hackingyseguridad.com/
            (https://github.com/hackingyseguridad/fuzzer)
 INFO
 if [ -z "$1" ]; then
         echo
         echo "Uso: $0 <https://dominio.com>"
-        echo "Tiempo estimado 2 hora ..."
+        echo "Tiempo estimado 1 hora ..."
         exit 0
 fi
 echo
