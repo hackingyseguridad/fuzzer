@@ -7,9 +7,9 @@ cat << "INFO"
  | |_ _   _ _________ | |__ | |_| |_ _ __  ___
  |  _| | | |_  /_  /  | '_ \| __| __| '_ \/ __|
  | | | |_| |/ / / /   | | | | |_| |_| |_) \__ \
- |_|  \__,_/___/___\  |_| |_|\__|\__| .__/|___/ v1.10 (Noviembre de 2023)
+ |_|  \__,_/___/___\  |_| |_|\__|\__| .__/|___/ v1.10 (Noviembre de 2023) 
            ALDEA DEL FRESNO / MADRID / ESPAÑA
-           http://www.hackingyseguridad.com/
+           (https://github.com/hackingyseguridad/fuzzer)
 INFO
 if [ -z "$1" ]; then
         echo
