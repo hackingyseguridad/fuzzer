@@ -52,6 +52,8 @@ xmlrpc.php
 tmUnblock.cgi
 pma/scripts/setup.php
 %00
+/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd 
+///cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd 
 ../../../../../etc/passwd
 %252e%252e/manager/html
 %252f%252fserver-status
