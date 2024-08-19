@@ -16802,6 +16802,7 @@ shopstat
 shopsys
 shopzilla
 short
+connectionstrings.config
 shortcut
 shortcuts
 shortlist
