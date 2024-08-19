@@ -53169,3 +53169,5 @@ data
 /welcome
 /../../../../../../../../../../../../../../
 //../../../../../../../../../../../../../../
+/admin:$i30:$INDEX_ALLOCATION/admin.php
+/admin::$INDEX_ALLOCATION/admin.php
