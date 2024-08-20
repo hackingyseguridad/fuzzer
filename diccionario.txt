@@ -53171,3 +53171,7 @@ data
 //../../../../../../../../../../../../../../
 /admin:$i30:$INDEX_ALLOCATION/admin.php
 /admin::$INDEX_ALLOCATION/admin.php
+/uploadedfiles/
+uploadedfiles/web.config
+/uploadedfiles/web.config
+uploadedfiles:$i30:$INDEX_ALLOCATION
