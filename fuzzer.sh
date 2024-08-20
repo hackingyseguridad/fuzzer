@@ -13,7 +13,7 @@ INFO
 if [ -z "$1" ]; then
         echo
         echo "Genera CA root y certificados para las peticiones https "
-        echo "Descubre ficheros en  url de sitio web por 200 OK.. "
+        echo "Descubre ficheros en  url de sitio web por  HTTP/1.1 200\|HTTP/1.1 300\|HTTP/1.1 301\|HTTP/1.1 302 .. "
         echo "Uso: $0 <https://dominio.com>"
         echo "Tiempo estimado 1 hora ..."
         exit 0
