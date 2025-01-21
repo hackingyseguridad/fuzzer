@@ -1,4 +1,7 @@
 # busca carpetas en el sitio web
-# hackingyseguriadd 2025
+# hackingyseguriad.com 2025
+# https://www.kali.org/tools/dirsearch/
 # sh direcitorios.sh url
+#
+
 dirsearch -u $1 $2 -e txt,php,html -x 404 --full-url  -w diccionario.txt
