@@ -4,4 +4,4 @@
 # sh direcitorios.sh url
 #
 
-dirsearch -u $1 $2 -e txt,php,htm,html,asp -x 404 --full-url  -w diccionario.txt
+dirsearch -u $1 $2 -e txt,php,htm,html,asp,jsp -x 404 --full-url  -w diccionario.txt
