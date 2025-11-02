@@ -35,7 +35,7 @@ echo "410 Ya no esta disponible"
 echo "500 Error interno en el servidor"
 echo
 
-for n in `cat diccionario.txt`
+for n in `cat ficheros.txt`
 
 do
         fqdn=$1"/"$n
