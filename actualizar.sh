@@ -15,6 +15,10 @@ wget https://raw.githubusercontent.com/hackingyseguridad/diccionarios/refs/heads
 wc -l carpetas.txt
 echo "...."
 echo "....."
+wget https://raw.githubusercontent.com/hackingyseguridad/diccionarios/refs/heads/master/carpetas2.txt -q -O carpetas2.txt  --inet4-only
+wc -l carpetas.txt
+echo "...."
+echo "....."
 echo
 echo "actualizado !!! "
 
