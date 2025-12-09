@@ -9,3 +9,4 @@
 ########################################
 
 dirsearch -u $1 $2 -e txt,php,htm,html,asp,jsp -x 200,301 --exclude-status=400-499,500-599 --full-url -t 99 -w carpetas.txt
+dirsearch -u $1 $2 -e txt,php,htm,html,asp,jsp -x 200,301 --exclude-status=400-499,500-599 --full-url -t 99 -w carpetas2.txt
