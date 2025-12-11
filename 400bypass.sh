@@ -2,7 +2,7 @@
 echo
 echo "(C) hackingyseguridad.com 2022"
 echo
-echo "Uso.: ./bypass400.sh https://url"
+echo "Uso.: ./400bypass.sh https://url"
 echo
 # Otros metodos HTTP: -X ARBITRARY ACL TRACK, TRACE
 curl -k -s --http1.0 -vvv $1 -X "TRACE" \
