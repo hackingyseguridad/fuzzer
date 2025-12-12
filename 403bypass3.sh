@@ -1,7 +1,7 @@
 #! /bin/bash
-
 echo
-echo "./bypass-403.sh https://pagina.com path"
+echo
+echo "./403bypass3.sh https://pagina.com path"
 echo
 echo "Codigo HTTP, datos descargados, URL probada"
 echo "-------------------------------------------"
