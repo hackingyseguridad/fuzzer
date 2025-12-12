@@ -2,7 +2,7 @@
 echo
 echo "(r) hackingyseguridad.com 2025"
 echo
-echo "Uso.: ./bypass403.sh https://url"
+echo "Uso.: ./403bypass0.sh https://url"
 echo
 # Otros metodos HTTP: -X ARBITRARY ACL TRACK, TRACE
 curl -k -s --http1.0 -vvv $1 -X "POST" \
