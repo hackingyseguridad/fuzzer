@@ -1,6 +1,4 @@
 #!/bin/bash
-
-figlet 403-Bypass
 echo 
 echo
 # Display usage information if no arguments or -h is provided
