@@ -1,4 +1,11 @@
 #!/bin/bash
+#######################################################################
+# Antonio Taboada 2025 # hackingyseguridad.com
+# Prueba a salgar el error 403 Forbidden en carpetas de portales web 
+#######################################################################
+#
+echo "Bypassing 403 Forbidden .. "
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -96,7 +103,7 @@ done
 echo ""
 echo -e "${VIOLET}HTTP METHOD FUZZING${RESET}"
 echo ""
-methods=("PUT" "POST" "CONNECT" "TRACE" "PATCH") #You can also add HEAD METHOD here..
+methods=("PUT" "GET" "POST" "CONNECT" "TRACE" "PATCH" "ARBITRARY" "ACL" "TRACK"    ) #You can also add HEAD METHOD here..
 for method in "${methods[@]}"; do
     response=$(curl -k -s -o /dev/null -iL -w "%{http_code},%{size_download}" -X "$method" "$1/$2")
     http_code=$(echo "$response" | cut -d',' -f1)  # Extract the HTTP status code
@@ -115,3 +122,4 @@ for version in "${versions[@]}"; do
     colorized_code=$(colorize_status_code "$http_code")  # Colorize the status code
     echo -e "  --> ${1}/${2} with HTTP/$version Response: [${colorized_code}] Size: ${size}"
 done
+
