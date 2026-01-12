@@ -9,17 +9,15 @@
 ╚═╝      ╚═════╝ ╚══════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
 ```
 
+## fuzzer http y https
 
-
-# fuzzer http y https
-
-Descubre ficheros interesantes en  url de sitio web por respuestas:
+fuzzer para descubrir archivos/carpetas prueba combinaciones de rutas en un servidor web usando un diccionario de palabras comunes. Descubre ficheros interesantes en  url de sitio web por respuestas:
 
 HTTP/1.1 200 OK..
 HTTP/1.1 403 OK
 HTTP/1.1 500 OK
 
-Instalación:
+### Instalación:
 
 git clone https://github.com/hackingyseguridad/fuzzer
 
@@ -33,8 +31,7 @@ Uso.:
 
 #sh fuzzer.sh URL
 
-
-Respuestas HTTP:
+### Respuestas HTTP:
 
 <img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/HTTP_codigos.jpg">
 
