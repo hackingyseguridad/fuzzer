@@ -35,14 +35,9 @@ Uso.:
 
 <img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/codigoshttp.png">
 
-you can run fuzzer.sh by pointing it to the URL of the web application you want to test. For example, to test the web application at http://example.com, you would run the following command:
+### 403 Forbidden - 
 
-fuzzer.sh http://example.com
-Fuzzer.sh will then generate random input and send it to the web application. If the web application is vulnerable, the fuzzer may be able to crash the application or exploit a vulnerability.
-
-Fuzzer.sh can be a valuable tool for testing the security of web applications. However, it is important to note that fuzzer.sh is not a silver bullet. It is not guaranteed to find all vulnerabilities, and it can also generate false positives. It is important to use fuzzer.sh in conjunction with other security testing tools and methods.
-
-
+- Scripts en Bash Shell, para probar fisuras a las capertas prohibidas , que devuelven un error 403 forbidden!, con X Cabeceras o similando ser la IP del propio host o de localhost, p.ej.:
 
 X Cabeceras localhost:
 
