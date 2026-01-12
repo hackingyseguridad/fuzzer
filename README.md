@@ -31,7 +31,7 @@ Uso.:
 
 #sh fuzzer.sh URL
 
-### Respuestas HTTP:
+### Codigos de respuestas HTTP:
 
 <img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/HTTP_codigos.jpg">
 
