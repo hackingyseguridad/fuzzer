@@ -33,7 +33,7 @@ Uso.:
 
 ### Codigos de respuestas HTTP:
 
-<img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/HTTP_codigos.jpg">
+<img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/codigoshttp.png">
 
 you can run fuzzer.sh by pointing it to the URL of the web application you want to test. For example, to test the web application at http://example.com, you would run the following command:
 
