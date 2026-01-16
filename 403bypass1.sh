@@ -1,4 +1,8 @@
-# 
+# bypass 403 hackingyseguridad.com 2026 
+# Configuraciones mal hechas en NGINX + backend legacy
+# Filtros WAF obsoletos
+# Reglas basadas solo en coincidencia de strings
+# @antonio_taboada
 # Usp: 
 # sh 403bypass1.sh  https://pagina.com/admin
 
