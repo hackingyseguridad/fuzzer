@@ -35,7 +35,7 @@ Uso.:
 
 <img style="float:left" alt="Codigos HTTP" src="https://github.com/hackingyseguridad/fuzzer/blob/master/codigoshttp.png">
 
-### 403 Forbidden - 
+### 403 Forbidden - Bypass
 
 - Scripts en Bash Shell, para probar fisuras a las capertas prohibidas , que devuelven un error 403 forbidden!, con X Cabeceras o similando ser la IP del propio host o de localhost, p.ej.:
 
