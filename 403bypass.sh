@@ -66,6 +66,8 @@ fuzz_headers=(
     "-H 'X-Originating-IP: 127.0.0.1:80'"
     "-H 'X-Remote-IP: 127.0.0.1:80'"
     "-H 'X-Remote-Addr: 127.0.0.1:80'"
+    "-H 'Access-Control-Allow-Origin: 127.0.0.1'"
+    "-H 'X-Real-IP: 127.0.0.1'"    
     "-H 'X-rewrite-url: $2'"
     "-H 'Host: localhost'"
     "-H 'X-Host: 127.0.0.1'"
