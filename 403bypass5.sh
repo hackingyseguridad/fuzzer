@@ -1,5 +1,5 @@
 #!/bin/bash
-# 403bypass5-mejorado.sh
+# 403bypass5.sh
 # Muestra SOLO casos 200 OK + imprime la petición curl completa con -v
 # Permite pasar la URL completa de una vez
 #
