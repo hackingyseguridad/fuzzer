@@ -7,7 +7,7 @@
 #   ./403-bypass6.sh https://target.com/admin/
 
 if [ $# -ne 1 ]; then
-    echo "Uso: $0 <URL_completa>"
+    echo "Uso: $0 <URL>"
     echo "Ejemplos:"
     echo "  $0 https://ejemplo.com/admin/"
     echo "  $0 https://target.com/api/v1/private"
@@ -19,9 +19,11 @@ FULL_URL="$1"
 echo ""
 echo "============================================================="
 echo " Pruebas 403 bypass → $FULL_URL"
-echo 
+echo
 echo "============================================================="
 echo ""
+
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0"
 
 # ────────────────────────────────────────────────
 #  Pequeña función para ejecutar y filtrar solo 200
@@ -48,7 +50,6 @@ run_curl() {
     echo ""
 }
 
-
 echo "[*] Variaciones de path + métodos"
 echo ""
 
@@ -73,8 +74,8 @@ for extra in \
 ; do
     test_url="${FULL_URL}${extra}"
 
-    for method in GET HEAD OPTIONS; do
-        cmd="curl -sk -m 7 -I -X $method \"$test_url\""
+    for method in GET HEAD OPTIONS POST PUT ACL; do
+        cmd="curl -sk -m 7 -I -X $method -H \"User-Agent: $UA\" \"$test_url\""
         run_curl "$cmd"
     done
 done
@@ -94,7 +95,7 @@ for h in \
 ; do
     for extra in "" "//" "/." "/..;/" "/.;/"; do
         test_url="${FULL_URL}${extra}"
-        cmd="curl -sk -m 7 -I -X GET -H \"$h\" \"$test_url\""
+        cmd="curl -sk -m 7 -I -X GET -H \"$h\" -H \"User-Agent: $UA\" \"$test_url\""
         run_curl "$cmd"
     done
 done
@@ -102,8 +103,10 @@ done
 echo "[*] Trucos HTTP/1.0 + Host header"
 echo ""
 
-cmd="curl -sk -m 7 -I \"$FULL_URL\""
+cmd="curl -sk -m 7 -I -H \"User-Agent: $UA\" \"$FULL_URL\""
 run_curl "$cmd"
 
-cmd="curl -sk -m 7 -I --http1.0 -H \"Host:\" \"$FULL_URL\""
+cmd="curl -sk -m 7 -I --http1.0 -H \"Host:\" -H \"User-Agent: $UA\" \"$FULL_URL\""
 run_curl "$cmd"
+
+
