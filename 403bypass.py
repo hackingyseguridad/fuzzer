@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 BY403 - Herramienta completa de bypass 403/401
-Autor: Pentester Tool
+Autor: hackingyseguridad.com (2026)
 Versión: 2.0
 """
 
@@ -403,7 +403,7 @@ class Bypass403:
             'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 
             'OPTIONS', 'HEAD', 'TRACE', 'CONNECT',
             'PROPFIND', 'PROPPATCH', 'MKCOL', 'COPY',
-            'MOVE', 'LOCK', 'UNLOCK', 'REPORT'
+            'MOVE', 'LOCK', 'UNLOCK', 'REPORT', 'ACL', 'ARBITRARY'
         ]
         
         self.log("\n[+] Probando diferentes métodos HTTP...", "INFO")
@@ -810,14 +810,12 @@ class Bypass403:
 # ========== MAIN ==========
 def main():
     banner = r"""
-     ____  __   __   ____   ____  _____ 
-    | __ ) \ \ / /  / ___| / ___|| ____|
-    |  _ \  \ V /  | |  _  \___ \|  _|  
-    | |_) |  | |   | |_| |  ___) | |___ 
-    |____/   |_|    \____| |____/|_____|
+
+BYPASS 40X
+$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$$
     
-    BY403 - Herramienta Completa de Bypass 403/401
-    Versión 2.0 | Máxima cobertura de técnicas
+    Bypass 403/401
+    Versión 2.0 | hackingyseguridad.com ( 2026 ) 
     """
     
     print(banner)
