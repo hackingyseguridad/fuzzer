@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BY403 - Herramienta completa de bypass 403/401
+bypass 403/401
 Autor: hackingyseguridad.com (2026)
 Versión: 2.0
 """
@@ -811,9 +811,11 @@ class Bypass403:
 def main():
     banner = r"""
 $$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$$
+
                )\._.,--....,'``.      
  .b--.        /;   _.. \   _\  (`._ ,.
 `=,-,-'~~~   `----(,_..'--(,_..'`-.;.'   Bypass 40x 
+
 $$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$$
                               hackingyseguridad.com ( 2026 ) 
     """
