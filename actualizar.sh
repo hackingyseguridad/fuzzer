@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 echo "##################################################################"
-echo "... actualizando diccionarios ...  (R) 2025 hackingyseguridad.com "
+echo "... actualizando diccionarios ...  (R) 2026 hackingyseguridad.com "
 echo "##################################################################"
 echo
+wget https://raw.githubusercontent.com/hackingyseguridad/diccionarios/refs/heads/master/http-fingerprints.lua -q -O http-fingerprints.lua  --inet4-only
+wc -l http-fingerprints.lua
+echo "...."
+echo "....."
 wget https://raw.githubusercontent.com/hackingyseguridad/diccionarios/refs/heads/master/ficheros.txt -q -O ficheros.txt  --inet4-only
 wc -l ficheros.txt
 echo ".."
