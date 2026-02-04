@@ -24,5 +24,6 @@ wc -l carpetas2.txt
 echo "...."
 echo "....."
 echo
+unzip http-fingerprints.lua.zip
 
 
