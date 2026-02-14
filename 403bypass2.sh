@@ -49,6 +49,7 @@ cat << 'EOF'
 /*
 /.random
 /index.aspx
+/index.asp
 /default.aspx
 /upload.htm
 /upload.html
@@ -92,6 +93,23 @@ cat << 'EOF'
 /index.do
 /index2.htm
 /index2.html
+/index.shtml
+/index.xhtml
+/index.wml
+/index.perl
+/index.pl
+/index.plx
+/index.ppl
+/index.cgi
+/index.js
+/index.jp
+index.php?run=%26echo%20`id`%24()%5C%20 
+index.php5
+index.php4
+index.php3
+index.php2
+index.phtml
+index.sh
 EOF
 }
 
