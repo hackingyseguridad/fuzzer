@@ -33,6 +33,8 @@ UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Ge
 # ────────────────────────────────────────────────
 payloads() {
 cat << 'EOF'
+/robots.txt
+/favicon.ico
 /*
 //
 /.
@@ -53,8 +55,6 @@ cat << 'EOF'
 /default.aspx
 /upload.htm
 /upload.html
-/robots.txt
-/favicon.ico
 /sitemap.xml
 /upload.shtml
 /upload.xhtml
@@ -103,13 +103,13 @@ cat << 'EOF'
 /index.cgi
 /index.js
 /index.jp
-index.php?run=%26echo%20`id`%24()%5C%20 
-index.php5
-index.php4
-index.php3
-index.php2
-index.phtml
-index.sh
+/index.php?run=%26echo%20`id`%24()%5C%20 
+/index.php5
+/index.php4
+/index.php3
+/index.php2
+/index.phtml
+/index.sh
 EOF
 }
 
