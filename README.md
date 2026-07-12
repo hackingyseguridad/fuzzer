@@ -11,7 +11,13 @@
 
 Colección de scripts en **Bash** y **Python** para el descubrimiento de ficheros, carpetas y rutas ocultas en servidores web, junto con utilidades de apoyo para pruebas de intrusión (bypass de 403, detección de WAF, extracción de secretos, análisis con `httpx`, generación de certificados para MITM/HTTPS, etc.).
 
-El proyecto original es de [hackingyseguridad.com](http://www.hackingyseguridad.com/) — este documento amplía el README original añadiendo una descripción detallada de cada script, ejemplos de uso y una guía sobre cómo interpretar los resultados de las pruebas de fuzzing.
+| | |
+|---|---|
+| **Lenguajes** | Python (52%) · Shell (48%) |
+| **Función principal** | Descubrimiento de rutas web (directory/file brute-forcing) |
+| **Función secundaria** | Bypass de restricciones HTTP 403 |
+| **Licencia** | GPL-3.0 |
+| **Forks** | 3 |
 
 ---
 
