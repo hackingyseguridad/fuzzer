@@ -109,6 +109,16 @@ fuzzer/
 ├── instalar.sh / actualizar.sh  # instalación y actualización del entorno
 └── 403.jpg, HTTP_codigos.jpg, codigoshttp.png  # material gráfico de apoyo
 ```
+| Script | Descripción |
+|---|---|
+| `fuzzer.sh` / `fuzzer0.sh` … `fuzzer9.sh` | Variantes del fuzzer principal de rutas |
+| `fuzzerauto.sh`, `fuzzerauto1.sh`, `fuzzerauto2.sh` | Versiones automatizadas del fuzzing |
+| `fuzzerfichero.sh`, `fuzzerfichero2.sh` | Fuzzing enfocado en ficheros específicos |
+| `fuzzernmap.sh`, `fuzzernmap2.sh` | Integración del fuzzer con Nmap |
+| `dirb.sh` | Fuzzing de directorios (basado en Dirb) |
+| `directorios.sh`, `directorios1.sh`, `directorios2.sh` | Escaneo de directorios comunes |
+| `explorarweb.sh`, `probarweb.sh` | Exploración/pruebas generales sobre el sitio web |
+| `buscasecretos.sh` | Búsqueda de ficheros/secretos sensibles expuestos |
 
 ---
 
