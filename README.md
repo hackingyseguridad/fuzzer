@@ -298,17 +298,6 @@ Los scripts clasifican los hallazgos según el código devuelto por el servidor.
 
 ---
 
-## Buenas prácticas al fuzzear
-
-- Ejecuta siempre contra objetivos para los que tengas **autorización explícita**.
-- Ajusta la concurrencia/hilos (`-t` en `dirsearch`) para no provocar una denegación de servicio involuntaria.
-- Usa un `User-Agent` identificable si el cliente lo solicita, para que el equipo defensivo pueda distinguir tu tráfico de un ataque real.
-- Guarda las salidas (`> resultado.txt`) de cada script para poder correlacionar hallazgos entre fases (directorios → ficheros → bypass 403).
-- Actualiza regularmente los diccionarios (`actualizar.sh`) para no perder rutas relevantes que aparecen con nuevas versiones de frameworks/CMS.
-
----
-
-
 #
 http://www.hackingyseguridad.com/
 #
