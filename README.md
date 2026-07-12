@@ -13,8 +13,6 @@ Colección de scripts en **Bash** y **Python** para el descubrimiento de fichero
 
 El proyecto original es de [hackingyseguridad.com](http://www.hackingyseguridad.com/) — este documento amplía el README original añadiendo una descripción detallada de cada script, ejemplos de uso y una guía sobre cómo interpretar los resultados de las pruebas de fuzzing.
 
-> ⚠️ **Aviso legal:** estas herramientas están pensadas exclusivamente para auditorías de seguridad autorizadas, laboratorios propios (CTF, entornos de pruebas) o programas de *bug bounty* que expresamente permitan este tipo de pruebas. Lanzar un fuzzer contra un dominio sin autorización explícita del propietario puede constituir un delito. El uso de estas herramientas es responsabilidad exclusiva de quien las ejecuta.
-
 ---
 
 ## Tabla de contenidos
