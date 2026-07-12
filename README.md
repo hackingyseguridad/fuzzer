@@ -17,7 +17,6 @@ Colección de scripts en **Bash** y **Python** para el descubrimiento de fichero
 | **Función principal** | Descubrimiento de rutas web (directory/file brute-forcing) |
 | **Función secundaria** | Bypass de restricciones HTTP 403 |
 | **Licencia** | GPL-3.0 |
-| **Forks** | 3 |
 
 ---
 
