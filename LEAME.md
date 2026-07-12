@@ -106,15 +106,6 @@ Los scripts `403bypass*` prueban cabeceras HTTP que simulan que la petición pro
 | Host / Originating | `X-Host`, `X-HTTP-Host-Override`, `X-Originating-IP` |
 | Autorización personalizada | `X-Custom-IP-Authorization` |
 
-Valor típico usado en todas ellas: `127.0.0.1` o `localhost`.
-
----
-
-## ⚠️ Aviso legal
-
-Herramienta orientada a auditorías de seguridad y pentesting. Úsala **únicamente** sobre sistemas propios o con autorización explícita del propietario. El uso no autorizado contra sistemas de terceros puede ser constitutivo de delito.
-
----
 
 ## 🔗 Enlaces
 
