@@ -136,6 +136,13 @@ sh fuzzer.sh https://dominio.com
 - Al final imprime una tabla con el significado de cada código HTTP relevante (200 OK, 301/302 redirección, 403 prohibido, 404 no encontrado, 500 error interno, etc.).
 - Tiempo estimado de ejecución: ~1 hora (depende del tamaño del diccionario y la latencia del objetivo).
 
+| Script | Descripción |
+|---|---|
+| `403bypass.py` / `403bypass.sh` … `403bypass9.sh` | Distintas variantes para intentar evadir un 403 Forbidden |
+| `40xbypass.sh` | Bypass genérico de códigos 40x |
+| `wafbypass.sh`, `wafbypass2.sh` | Intentos de evasión de WAF |
+| `metodotrace.sh` | Pruebas con el método HTTP TRACE |
+
 ### Variantes numeradas `fuzzer0.sh` … `fuzzer9.sh`
 
 Mismo motor que `fuzzer.sh` pero con variaciones en el diccionario utilizado, el conjunto de códigos de estado filtrados o las cabeceras enviadas. Se recomienda ejecutarlas de forma incremental (`fuzzer0.sh`, `fuzzer1.sh`, ...) cuando se quiere cubrir diccionarios distintos sin repetir peticiones ya lanzadas por `fuzzer.sh`.
@@ -288,6 +295,12 @@ sh httpx_subdominio.sh subdominios.txt
 
 ## Códigos de respuesta HTTP
 
+| Código | Significado | Interpretación en el fuzzing |
+|---|---|---|
+| `200 OK` | Recurso encontrado y accesible | Ruta válida y visible |
+| `403 Forbidden` | Recurso existe pero acceso denegado | Candidato para bypass |
+| `500 Internal Server Error` | Error del servidor | Puede indicar comportamiento anómalo explotable |
+
 Los scripts clasifican los hallazgos según el código devuelto por el servidor. Referencia rápida (ampliada en `Codigos_respuesta_http.txt`):
 
 | Código | Significado | Relevancia en el fuzzing |
@@ -303,6 +316,16 @@ Los scripts clasifican los hallazgos según el código devuelto por el servidor.
 | 500 | Error interno del servidor | Puede indicar un endpoint mal gestionado, revisar manualmente. |
 
 ---
+
+Los scripts `403bypass*` prueban cabeceras HTTP que simulan que la petición proviene del propio host (localhost / 127.0.0.1), una técnica habitual para intentar evadir restricciones de acceso mal configuradas.
+
+| Categoría | Cabeceras probadas |
+|---|---|
+| Client / Real IP | `Client-IP`, `True-Client-IP`, `X-Client-IP`, `X-Real-IP`, `X-Remote-IP`, `X-Remote-Addr` |
+| Forwarded (estándar y variantes) | `Forwarded`, `Forwarded-For`, `Forwarded-For-Ip`, `X-Forward`, `X-Forward-For`, `X-Forwarded`, `X-Forwarded-For`, `X-Forwarded-For-Original`, `X-Forwarded-By`, `X-Forwarded-Server`, `X-Forwared-Host` |
+| Host / Originating | `X-Host`, `X-HTTP-Host-Override`, `X-Originating-IP` |
+| Autorización personalizada | `X-Custom-IP-Authorization` |
+
 
 ## Interpretar los resultados de un fuzz
 
