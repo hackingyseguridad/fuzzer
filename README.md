@@ -310,13 +310,6 @@ Los scripts clasifican los hallazgos según el código devuelto por el servidor.
 
 ---
 
-## Licencia
-
-Este proyecto se distribuye bajo licencia **GPL-3.0**. Consulta el fichero [`LICENSE`](./LICENSE) para más detalles.
-
-Proyecto original: [hackingyseguridad.com](http://www.hackingyseguridad.com/) · [github.com/hackingyseguridad/fuzzer](https://github.com/hackingyseguridad/fuzzer)
-
-
 
 #
 http://www.hackingyseguridad.com/
