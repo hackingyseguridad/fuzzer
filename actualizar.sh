@@ -24,6 +24,11 @@ wc -l carpetas2.txt
 echo "...."
 echo "....."
 echo
+wget https://raw.githubusercontent.com/hackingyseguridad/diccionarios/refs/heads/master/archivos.txt -q -O archivos.txt  --inet4-only
+wc -l archivos.txt
+echo "...."
+echo "....."
+echo
 unzip http-fingerprints.lua.zip
 
 
