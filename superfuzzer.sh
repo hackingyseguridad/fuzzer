@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/bin/sh
+
+# =========================================
+#  superfuzzer.sh - Analizador web simple
+#  Compatible con sh / Bash 1.0.x
+# =========================================
 
 # Verificar que se haya proporcionado una URL
-
 if [ -z "$1" ]; then
     echo "Uso: $0 <url>"
     echo "Ejemplo: $0 ejemplo.com"
@@ -9,8 +13,10 @@ if [ -z "$1" ]; then
 fi
 
 TARGET="$1"
-PORTS=(80 443 8443)
 ARCHIVO_RUTAS="ficheros.txt"
+
+# User-Agent creíble (Chrome 131 en Windows 10)
+USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 echo "========================================="
 echo " Analizando: $TARGET"
@@ -18,9 +24,10 @@ echo "========================================="
 
 # 1. Comprobar puertos TCP habituales (80, 443, 8443)
 echo "[*] Comprobando puertos web habituales..."
-for PORT in "${PORTS[@]}"; do
-    # Usamos /dev/tcp de bash para una comprobación rápida sin dependencias externas
-    if timeout 2 bash -c "echo > /dev/tcp/$TARGET/$PORT" 2>/dev/null; then
+for PORT in 80 443 8443; do
+    # Usamos 'nc' (netcat) compatible con sh y versiones antiguas.
+    # -z escanea sin enviar datos, -w establece timeout.
+    if nc -z -w 2 "$TARGET" "$PORT" 2>/dev/null; then
         echo "    [+] Puerto $PORT: ABIERTO"
     else
         echo "    [-] Puerto $PORT: CERRADO o FILTRADO"
@@ -30,21 +37,23 @@ done
 echo ""
 echo "[*] Ejecutando httpx-toolkit..."
 
-# 2. Ejecutar httpx-toolkit con los parámetros solicitados
-# Verificamos si existe el archivo de rutas, si no, lo creamos vacío para evitar errores
+# 2. Verificamos si existe el archivo de rutas (sintaxis compatible con sh)
 if [ ! -f "$ARCHIVO_RUTAS" ]; then
     echo "    [!] No se encontró '$ARCHIVO_RUTAS'. Se creará uno vacío."
     touch "$ARCHIVO_RUTAS"
 fi
 
-# Construimos la URL base para httpx (añadimos esquema si falta)
-# httpx suele manejar bien los dominios sin esquema, pero forzamos http/https
-if [[ ! "$TARGET" =~ ^https?:// ]]; then
-    TARGET_URL="https://$TARGET"
-else
-    TARGET_URL="$TARGET"
-fi
+# 3. Construimos la URL base (sin usar [[ ]] ni =~)
+case "$TARGET" in
+    http://*|https://*)
+        TARGET_URL="$TARGET"
+        ;;
+    *)
+        TARGET_URL="https://$TARGET"
+        ;;
+esac
 
+# 4. Ejecutamos httpx-toolkit con cabeceras creíbles
 httpx-toolkit -u "$TARGET_URL" \
     -title \
     -status-code \
@@ -52,7 +61,13 @@ httpx-toolkit -u "$TARGET_URL" \
     -follow-redirects \
     -path "$ARCHIVO_RUTAS" \
     -mc 200 \
-    -silent
+    -silent \
+    -H "User-Agent: $USER_AGENT" \
+    -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
+    -H "Accept-Language: es-ES,es;q=0.9,en;q=0.8" \
+    -H "Accept-Encoding: gzip, deflate, br" \
+    -H "Connection: keep-alive" \
+    -H "Upgrade-Insecure-Requests: 1"
 
 echo ""
 echo "========================================="
