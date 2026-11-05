@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # =========================================
-#  superfuzzer.sh - Analizador web simple
+#  superfuzzer.sh - hackingyseguridad.com 
 #  Compatible con sh / Bash 1.0.x
 # =========================================
 
@@ -15,6 +15,7 @@ fi
 TARGET="$1"
 ARCHIVO_RUTAS="ficheros.txt"
 
+
 # User-Agent creíble (Chrome 131 en Windows 10)
 USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
@@ -22,9 +23,9 @@ echo "========================================="
 echo " Analizando: $TARGET"
 echo "========================================="
 
-# 1. Comprobar puertos TCP habituales (80, 443, 8443)
+# 1. Comprobar puertos TCP habituales (80, 443, 4443, 6443, 7443, 8443, 8088, 8000, 8888, 10443)
 echo "[*] Comprobando puertos web habituales..."
-for PORT in 80 443 8443; do
+for PORT in 80 443 4443 6443 7443 8443 8088 8000 8888 10443; do
     # Usamos 'nc' (netcat) compatible con sh y versiones antiguas.
     # -z escanea sin enviar datos, -w establece timeout.
     if nc -z -w 2 "$TARGET" "$PORT" 2>/dev/null; then
@@ -37,13 +38,7 @@ done
 echo ""
 echo "[*] Ejecutando httpx-toolkit..."
 
-# 2. Verificamos si existe el archivo de rutas (sintaxis compatible con sh)
-if [ ! -f "$ARCHIVO_RUTAS" ]; then
-    echo "    [!] No se encontró '$ARCHIVO_RUTAS'. Se creará uno vacío."
-    touch "$ARCHIVO_RUTAS"
-fi
-
-# 3. Construimos la URL base (sin usar [[ ]] ni =~)
+# 2. Construimos la URL base (sin usar [[ ]] ni =~)
 case "$TARGET" in
     http://*|https://*)
         TARGET_URL="$TARGET"
@@ -53,14 +48,14 @@ case "$TARGET" in
         ;;
 esac
 
-# 4. Ejecutamos httpx-toolkit con cabeceras creíbles
+# 3. Ejecutamos httpx-toolkit con los parámetros solicitados
 httpx-toolkit -u "$TARGET_URL" \
     -title \
     -status-code \
     -tech-detect \
     -follow-redirects \
     -path "$ARCHIVO_RUTAS" \
-    -mc 200 \
+    -mc 200,301,302 \
     -silent \
     -H "User-Agent: $USER_AGENT" \
     -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
@@ -70,6 +65,5 @@ httpx-toolkit -u "$TARGET_URL" \
     -H "Upgrade-Insecure-Requests: 1"
 
 echo ""
-echo "========================================="
-echo " Análisis finalizado."
-echo "========================================="
+
+
