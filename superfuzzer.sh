@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # =========================================
-#  superfuzzer.sh - hackingyseguridad.com 
+#  superfuzzer.sh - hackingyseguridad.com
 #  Compatible con sh / Bash 1.0.x
+#  Evita los bloqueos de los FW, rate limit
 # =========================================
 
 # Verificar que se haya proporcionado una URL
@@ -49,14 +50,13 @@ case "$TARGET" in
 esac
 
 # 3. Ejecutamos httpx-toolkit con los parámetros solicitados
-httpx-toolkit -u "$TARGET_URL" \
+httpx-toolkit -threads 1 -rate-limit 5 -u "$TARGET_URL" \
     -title \
     -status-code \
     -tech-detect \
     -follow-redirects \
     -path "$ARCHIVO_RUTAS" \
     -mc 200,301,302 \
-    -silent \
     -H "User-Agent: $USER_AGENT" \
     -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
     -H "Accept-Language: es-ES,es;q=0.9,en;q=0.8" \
