@@ -50,7 +50,9 @@ case "$TARGET" in
 esac
 
 # 3. Ejecutamos httpx-toolkit con los parámetros solicitados
-httpx-toolkit -threads 1 -rate-limit 5 -u "$TARGET_URL" \
+# si no funciona httpx usaremos httpx-toolkit
+# httpx-toolkit -threads 1 -rate-limit 5 -u "$TARGET_URL" \
+httpx -threads 1 -rate-limit 5 -u "$TARGET_URL" \
     -title \
     -status-code \
     -tech-detect \
