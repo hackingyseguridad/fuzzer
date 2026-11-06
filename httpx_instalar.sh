@@ -22,5 +22,7 @@ httpx
 # unzip httpx_1.12.0_linux_amd64.zip
 # cp httpx /usr/bin/
 # mv httpx /usr/local/bin/httpx
+#
+# si nada funciona siempre queda la opcion de usar httpx-toolkit
 
 
